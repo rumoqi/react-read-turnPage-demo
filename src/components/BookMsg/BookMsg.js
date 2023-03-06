@@ -43,9 +43,9 @@ const BookMsg = (props) => {
 
             {/*底部*/}
             <footer className={classes.Bottom}>
-                <p className={ classes.BookName }> { props.bookMsg.name }</p>
+                <p > { props.bookMsg.name }</p>
                 <div>
-                    <span> {nowPage} / {page} </span>
+                    <span className={classes.Page}> {nowPage}/{page} </span>
                     <span> { time } </span>
                 </div>
             </footer>
