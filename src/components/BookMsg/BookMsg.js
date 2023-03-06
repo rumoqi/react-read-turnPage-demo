@@ -15,11 +15,18 @@ const getDate = ()=>{
 const BookMsg = (props) => {
     // 当前时间
     const [time,setTime] = useState(getDate())
+    // 当前页码
+    const [page,setPage] = useState(null)
+    const [nowPage,setNowPage] = useState(null)
 
     setInterval(()=>{
         setTime(getDate())
     },1000)
 
+    const getPages = (Page,NowPage)=>{
+        setPage(Page)
+        setNowPage(NowPage)
+    }
 
 
     return (
@@ -31,13 +38,14 @@ const BookMsg = (props) => {
 
             {/*文本*/}
             <div>
-                <Text bookDesc={ props.bookMsg.content }  />
+                <Text bookDesc={ props.bookMsg.content }  pages={getPages} />
             </div>
 
             {/*底部*/}
             <footer className={classes.Bottom}>
                 <p className={ classes.BookName }> { props.bookMsg.name }</p>
                 <div>
+                    <span> {nowPage} / {page} </span>
                     <span> { time } </span>
                 </div>
             </footer>
